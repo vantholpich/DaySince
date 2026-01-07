@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   Modal,
   StatusBar,
-  SafeAreaView,
   Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Plus } from 'lucide-react-native';
 import { useEvents } from '../hooks/useEvents';
 import EventCard from '../components/EventCard';
@@ -58,7 +58,7 @@ const HomeScreen = () => {
       {/* ✅ SAFE MODAL */}
       <Modal
         visible={isModalVisible}
-        animationType={Platform.OS === 'ios' ? 'pageSheet' : 'slide'}
+        animationType="slide"
         presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : 'fullScreen'}
         onRequestClose={() => setModalVisible(false)}
       >
